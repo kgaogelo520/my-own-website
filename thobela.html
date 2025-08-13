@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Happy Birthday</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" />
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+        * {
+            transition: all 0.2s ease-in-out;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #6c63ff;
+            display: grid;
+            place-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: "Open Sans", sans-serif;
+            color: #fff;
+        }
+
+        .card {
+            background: #fdfdfd;
+            border-radius: 4px;
+            height: 85vh;
+            width: 90vw;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1em;
+            overflow: auto;
+        }
+
+        .card img.birthday {
+            width: 350%;
+            max-width: 400vw;
+            max-height: 45vh;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .text {
+            padding: 1em;
+            color: #333;
+            max-width: 600px;
+        }
+
+        .text h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+            color: #6c63ff;
+        }
+
+        .text p {
+            font-size: 1.2em;
+            line-height: 1.5em;
+            white-space: pre-line;
+        }
+
+        .muted {
+            opacity: 0.8;
+        }
+
+        .space {
+            height: 100px;
+        }
+
+        /* Large screens */
+        @media only screen and (min-width: 1000px) {
+            .card {
+                flex-direction: row-reverse;
+            }
+            .card img.birthday {
+                max-width: 50vw;
+                max-height: unset;
+            }
+            .text {
+                max-width: 400px;
+            }
+        }
+
+        /* Short screens */
+        @media only screen and (max-height: 640px) {
+            .card {
+                flex-direction: row-reverse;
+            }
+            .card img.birthday {
+                max-width: 50vw;
+                max-height: unset;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        body.play-music {
+            animation: fadeIn 2s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <img
+            src="https://github.com/DzarelDeveloper/Img/blob/main/ulangtahun.jpg?raw=true"
+            alt="birthday"
+            class="birthday"
+        />
+
+        <div class="text">
+            <h1>Happy Birthday, Winston!</h1>
+            <p>
+                Wishing you a day filled with laughter, love, and unforgettable moments. You light up
+                every room with your smile and kindness. I’m so grateful — my rock, my joy, my boo.
+                May this year bring you endless happiness, success, and dreams come true. Keep shining bright and never forget how deeply you are loved. Happy birthday! 💖
+            
+                love kgau
+            </p>
+        </div>
+
+        <div class="space"></div>
+
+        <audio controls autoplay>
+            <source src="audio/Tommy Docherty, Marissa - Whole Life.mp3" type="audio/mp3" />
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <script>
+        const audio = document.querySelector("audio");
+
+        audio.addEventListener("play", () => {
+            document.body.classList.add("play-music");
+        });
+
+        audio.addEventListener("pause", () => {
+            document.body.classList.remove("play-music");
+        });
+    </script>
+</body>
+</html>
